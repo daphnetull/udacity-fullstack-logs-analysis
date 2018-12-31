@@ -26,4 +26,4 @@ Students are assigned to write three seperate advanced SQL queries and execute t
 
 - [PostgreSQL](https://www.postgresql.org/)
 - [Psycopg](http://initd.org/psycopg/)
-# udacity-fullstack-logs-analysis
+
