@@ -1,0 +1,27 @@
+
+1.   [('Candidate is jerk, alleges rival', 342102L), ('Bears love berries, alleges bear', 256365L), ('Bad things gone, say good people', 171762L)]
+             title               |  num   
+----------------------------------+--------
+ Candidate is jerk, alleges rival | 342102
+ Bears love berries, alleges bear | 256365
+ Bad things gone, say good people | 171762
+
+
+
+2.  [('Ursula La Multa', 512805L), ('Rudolf von Treppenwitz', 427781L), ('Anonymous Contributor', 171762L), ('Markoff Chaney', 85387L)]
+
+          name          |  num   
+------------------------+--------
+ Ursula La Multa        | 512805
+ Rudolf von Treppenwitz | 427781
+ Anonymous Contributor  | 171762
+ Markoff Chaney         |  85387
+
+
+
+3.  [(datetime.date(2016, 7, 17), Decimal('2.26268624680272595600'))]
+
+    date    |          perc          
+------------+------------------------
+ 2016-07-17 | 2.26268624680272595600
+
