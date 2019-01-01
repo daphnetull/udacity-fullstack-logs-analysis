@@ -14,11 +14,15 @@ def get_top_articles():
     c = db.cursor()
     c.execute("""
         select articles.title, count(*) as num
-        from articles join log
-        on log.path like '%' || articles.slug || '%'
+        from articles, log
+        where log.status = '200 OK'
+        and log.path like '%' || articles.slug || '%'
         group by articles.title order by num desc limit 3
     """)
     top_articles = c.fetchall()
+    top_articles = '\n'.join(map(str, top_articles))
+    top_articles = top_articles.translate(None, 'L()')
+    print '\n What are the most popular three articles of all time?'
     print(top_articles)
     db.close()
 
@@ -30,11 +34,15 @@ def get_top_authors():
     c.execute("""
         select authors.name, count(*) as num
         from articles, authors, log
-        where articles.author = authors.id
+        where status = '200 OK'
+        and articles.author = authors.id
         and log.path like '%' || articles.slug || '%'
         group by authors.name order by num desc
     """)
     top_authors = c.fetchall()
+    top_authors = '\n'.join(map(str, top_authors))
+    top_authors = top_authors.translate(None, 'L()')
+    print '\n Who are the most popular article authors of all time?'
     print(top_authors)
     db.close()
 
@@ -56,6 +64,11 @@ def error_analysis():
     """)
     c.execute("select date,perc from percentages where perc > 1")
     error_percentages = c.fetchall()
+    error_percentages = '\n'.join(map(str, error_percentages))
+    error_percentages = error_percentages.replace('datetime.date', '')
+    error_percentages = error_percentages.translate(None, 'L()Decimal')
+    error_percentages = error_percentages.replace(',', '-')
+    print '\n On which days did more than 1% of requests lead to errors?'
     print(error_percentages)
     db.close()
 
