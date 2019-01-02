@@ -72,6 +72,7 @@ def error_analysis():
     print(error_percentages)
     db.close()
 
+
 get_top_articles()
 get_top_authors()
 error_analysis()
